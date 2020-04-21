@@ -16,11 +16,15 @@ namespace WireBrainCoffee.ShopInfoTool
             while (true)
             {
                 var line = Console.ReadLine();
+
+                if (string.Equals("quit", line, StringComparison.OrdinalIgnoreCase))
+                    break;
+
                 var coffeeShops = coffeeShopDataProvider.LoadCoffeeShops();
 
                 if (string.Equals("help", line, StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.WriteLine("> Available coffee shop commands:");
+                    Console.WriteLine("> Available coffee shop commands, write 'quit' to exit application");
 
                     foreach (var coffeeShop in coffeeShops)
                     {
